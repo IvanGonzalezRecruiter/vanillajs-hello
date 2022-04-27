@@ -1,29 +1,44 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>El Generador de Excusas de Iván</title>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello Rigo with Vanilla.js</title>
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-      crossorigin="anonymous"
-    />
-    <link rel="shortcut icon" href="./4geeks.ico" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body>
-    <div class="container-fluid text-center">
-      <h1 class="mt-5">Hello Rigo!</h1>
-      <img src="./rigo-baby.jpg" />
-      <p class="alert alert-warning mt-4">
-        If this text is <b>not</b> centered and <b>yellow</b>, you probably have
-        an error
-      </p>
-      <div class="fixed-bottom p-4">
-        Made with ❤️ by
-        <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
-      </div>
+    <div id="contenido">
+      <p>No me vas a creer pero...</p>
+      <p id="excusa"></p>
     </div>
+    <script>
+      let who = [
+        "El perro",
+        "Mi mamá",
+        "Mi novia",
+        "John Lennon",
+        "Mi profesor"
+      ];
+      let what = ["se comió", "pisó", "destruyó", "rompió", "ensució"];
+      let when = [
+        "antes de la clase de 4geeks",
+        "apenas acabé",
+        "mientras cenaba",
+        "mientras dormía"
+      ];
+
+      function Generador(quien, que, cuando) {
+        numQuien = Math.floor(Math.random() * quien.length);
+        numQue = Math.floor(Math.random() * que.length);
+        numCuando = Math.floor(Math.random() * cuando.length);
+        return (
+          quien[numQuien] + " " + que[numQue] + " mi tarea " + cuando[numCuando]
+        );
+      }
+      function onLoad() {
+        var mensaje = document.getElementById("excusa");
+        mensaje.innerHTML = Generador(who, what, when);
+      }
+      window.onload = onLoad();
+    </script>
   </body>
 </html>
